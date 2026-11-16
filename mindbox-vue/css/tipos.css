@@ -1,9 +1,0 @@
-/* =========================================================
-   TIPOS — tipografía local (Inter). Poppins se carga desde Google Fonts
-   ========================================================= */
-@font-face {
-    font-family: "Inter";
-    src: url("../fonts/Inter-Variable.ttf") format("truetype");
-    font-weight: 100 900;
-    font-display: swap;
-}
