@@ -1,0 +1,440 @@
+/* =========================================================
+   BASE — tipografía y elementos compartidos
+   ========================================================= */
+.section-title {
+    margin-bottom: var(--space-3);
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+}
+
+.card__title,
+.inspiration-card__title {
+    margin-bottom: var(--space-1);
+    font-family: var(--font-heading);
+    font-size: var(--text-md);
+    font-weight: 600;
+}
+
+p {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+}
+
+/* Icono SVG: hereda el color del texto que lo rodea */
+.icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+/* Espaciado lateral común a las secciones de ambas páginas */
+:is(.dashboard, .inspiration-form, .inspiration-list) {
+    padding: var(--space-5) var(--space-5) 0;
+}
+
+/* =========================================================
+   BOTONES — utilidad reutilizada por varios bloques
+   ========================================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 0.6rem 1.3rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn--primary:focus-visible {
+    outline: 2px solid var(--color-primary-hover);
+    outline-offset: 2px;
+}
+
+.btn--primary:active {
+    transform: scale(0.98);
+}
+
+/* =========================================================
+   HEADER — site-header
+   ========================================================= */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-5);
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__logo {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.site-header__nav-list {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.site-header__nav-link {
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+:is(.site-header__nav-link:hover, .site-header__nav-link:focus-visible, .site-header__nav-link--active) {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+
+.site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.site-header__icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.site-header__icon-btn:hover {
+    background-color: var(--color-surface-muted);
+    color: var(--color-primary);
+}
+
+:is(.site-header__icon-btn, .site-header__avatar-btn):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.site-header__avatar-btn {
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.site-header__avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 999px;
+    object-fit: cover;
+}
+
+/* =========================================================
+   DASHBOARD — grid bidimensional de tarjetas
+   ========================================================= */
+.dashboard {
+    padding-bottom: var(--space-5);
+}
+
+.dashboard__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+/* =========================================================
+   CARD — bloque reutilizable
+   ========================================================= */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-3) var(--space-4);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+}
+
+.card__text {
+    margin-bottom: var(--space-3);
+}
+
+/* =========================================================
+   INSPIRATION FORM — "Añadir una inspiración"
+   ========================================================= */
+.inspiration-form__panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+}
+
+/* Dos campos por fila en pantallas anchas */
+.inspiration-form__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+.inspiration-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+    border: none;
+}
+
+.inspiration-form__label {
+    padding: 0;
+    color: var(--color-text);
+    font-size: var(--text-md);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+/* :has() — resalta la etiqueta cuando su campo asociado tiene el foco */
+.inspiration-form__field:has(:focus) .inspiration-form__label {
+    color: var(--color-primary);
+}
+
+:is(.inspiration-form__input, .inspiration-form__textarea) {
+    padding: var(--space-2);
+    background-color: var(--color-surface-input);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: var(--text-sm);
+    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.inspiration-form__textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+:is(.inspiration-form__input, .inspiration-form__textarea)::placeholder {
+    color: var(--color-placeholder);
+}
+
+:is(.inspiration-form__input, .inspiration-form__textarea):focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: var(--color-surface);
+}
+
+/* Opciones de radio y casilla de verificación */
+.inspiration-form__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+.inspiration-form__option {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+    cursor: pointer;
+}
+
+.inspiration-form__option input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+}
+
+.inspiration-form__submit .icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================================================
+   INSPIRATION LIST — grid de tarjetas de inspiración
+   ========================================================= */
+.inspiration-list__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+.inspiration-card {
+    overflow: hidden;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.inspiration-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+}
+
+.inspiration-card__image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.inspiration-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-3) var(--space-3);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+    margin-top: var(--space-5);
+    padding: var(--space-2);
+    background-color: var(--color-surface);
+    text-align: center;
+}
+
+.site-footer__text + .site-footer__text {
+    margin-top: var(--space-1);
+}
+
+.site-footer__link {
+    color: var(--color-primary);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+
+    .site-header {
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .site-header__nav-list {
+        flex-wrap: wrap;
+        gap: var(--space-2);
+    }
+
+    :is(.dashboard, .inspiration-form, .inspiration-list) {
+        padding: var(--space-4) var(--space-3) 0;
+    }
+
+    .dashboard {
+        padding-bottom: var(--space-4);
+    }
+
+    .dashboard__grid,
+    .inspiration-list__grid,
+    .inspiration-form__row {
+        grid-template-columns: 1fr;
+    }
+
+    .inspiration-form__panel {
+        padding: var(--space-3);
+    }
+
+    .inspiration-card__image {
+        height: 260px;
+    }
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   DETALLE DE INSPIRACIÓN Y MENSAJES
+   ========================================================= */
+.detail {
+    padding: var(--space-5);
+}
+
+.detail__back {
+    display: inline-block;
+    margin-bottom: var(--space-3);
+    color: var(--color-primary);
+}
+
+.detail__panel {
+    overflow: hidden;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+}
+
+.detail__image {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+}
+
+.detail__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-4);
+}
+
+.detail__meta {
+    font-size: var(--text-sm);
+}
+
+.detail__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+}
+
+.message {
+    padding: var(--space-2) var(--space-3);
+    background-color: #e0ecff;
+    border-radius: var(--radius-sm);
+    color: var(--color-primary-hover);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .detail {
+        padding: var(--space-4) var(--space-3);
+    }
+
+    .detail__body {
+        padding: var(--space-3);
+    }
+}
